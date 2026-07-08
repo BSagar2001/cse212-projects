@@ -9,21 +9,52 @@ public class PriorityQueueTests
     // Scenario: 
     // Expected Result: 
     // Defect(s) Found: 
+    // Scenario: Add three items with different priorities.
+    // Expected Result: The item with the highest priority is removed first.
+    // Defect(s) Found: (Fill in after running the tests.)
     public void TestPriorityQueue_1()
     {
         var priorityQueue = new PriorityQueue();
-        Assert.Fail("Implement the test case and then remove this.");
+
+priorityQueue.Enqueue("A", 1);
+priorityQueue.Enqueue("B", 5);
+priorityQueue.Enqueue("C", 3);
+
+Assert.AreEqual("B", priorityQueue.Dequeue());
     }
 
     [TestMethod]
     // Scenario: 
     // Expected Result: 
     // Defect(s) Found: 
+    // Scenario: Two items have the same highest priority.
+    // Expected Result: The first item added is removed first (FIFO).
+    // Defect(s) Found: (Fill in after running the tests.)
     public void TestPriorityQueue_2()
     {
         var priorityQueue = new PriorityQueue();
-        Assert.Fail("Implement the test case and then remove this.");
+
+priorityQueue.Enqueue("A", 5);
+priorityQueue.Enqueue("B", 5);
+
+Assert.AreEqual("A", priorityQueue.Dequeue());
+Assert.AreEqual("B", priorityQueue.Dequeue());
     }
 
     // Add more test cases as needed below.
+    [TestMethod]
+// Scenario: Dequeue from an empty queue.
+// Expected Result: InvalidOperationException with the correct message.
+// Defect(s) Found: (Fill in after running the tests.)
+public void TestPriorityQueue_3()
+{
+    var priorityQueue = new PriorityQueue();
+
+    var ex = Assert.ThrowsException<InvalidOperationException>(() =>
+    {
+        priorityQueue.Dequeue();
+    });
+
+    Assert.AreEqual("The queue is empty.", ex.Message);
+}
 }
