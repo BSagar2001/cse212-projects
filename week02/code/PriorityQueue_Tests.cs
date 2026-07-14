@@ -11,7 +11,7 @@ public class PriorityQueueTests
     // Defect(s) Found: 
     // Scenario: Add three items with different priorities.
     // Expected Result: The item with the highest priority is removed first.
-    // Defect(s) Found: (Fill in after running the tests.)
+    // Defect(s) Found: The last item in the queue was not checked when searching for the highest priority, and the dequeued item was not removed from the queue.
     public void TestPriorityQueue_1()
     {
         var priorityQueue = new PriorityQueue();
@@ -29,7 +29,7 @@ Assert.AreEqual("B", priorityQueue.Dequeue());
     // Defect(s) Found: 
     // Scenario: Two items have the same highest priority.
     // Expected Result: The first item added is removed first (FIFO).
-    // Defect(s) Found: (Fill in after running the tests.)
+    // Defect(s) Found: When two items had the same priority, the queue removed the last one instead of the first.
     public void TestPriorityQueue_2()
     {
         var priorityQueue = new PriorityQueue();
@@ -45,7 +45,7 @@ Assert.AreEqual("B", priorityQueue.Dequeue());
     [TestMethod]
 // Scenario: Dequeue from an empty queue.
 // Expected Result: InvalidOperationException with the correct message.
-// Defect(s) Found: (Fill in after running the tests.)
+// Defect(s) Found: No defects found. The correct exception and message were thrown.
 public void TestPriorityQueue_3()
 {
     var priorityQueue = new PriorityQueue();
